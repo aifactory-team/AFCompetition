@@ -1,0 +1,28 @@
+model: "GNN_model"
+dataset: "qm9"
+out_dir: "./results/"
+data_path: './data/'
+task: 'mu'
+gpu:
+  use: true
+  id: 0
+train_params:
+  seed: 41
+  epochs: 100
+  batch_size: 128
+  init_lr: 0.0007
+  lr_reduce_factor: 0.5
+  lr_schedule_patience: 15
+  min_lr: 1e-6
+  weight_decay: 0.0
+  print_epoch_interval: 5
+  max_time: 24
+data:
+  num_workers: 0
+graph_encoder_params:
+  n_layer: 3
+  n_heads: 8
+  hidden_dim: 64
+  out_dim: 64
+  edge_feat: true
+  num_atom_type: 5
