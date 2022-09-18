@@ -1,7 +1,7 @@
 model: "GNN_model"
 dataset: "qm9"
 out_dir: "./results/"
-data_path: './'
+data_path: './data/'
 task: 'mu'
 gpu:
   use: true
