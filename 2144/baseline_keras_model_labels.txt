@@ -1,0 +1,4 @@
+0 standing
+1 lyingonbelly
+2 lyingonside
+3 sitting
