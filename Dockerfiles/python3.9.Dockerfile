@@ -17,11 +17,12 @@ RUN apt install -y python3.9-dev && \
     apt-get install -y python3.9-distutils && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3.9 get-pip.py && \
+    echo 'alias python3=python3.8' >> ~/.bashrc && \
+    echo 'alias pip3=pip3.8' >> ~/.bashrc && \
     echo 'alias python=python3.9' >> ~/.bashrc && \
     echo 'alias pip=pip3.9' >> ~/.bashrc && \
     /bin/bash -c "source ~/.bashrc" && \
-    rm -rf get-pip.py && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf get-pip.py
 
 # Data science
 RUN pip install tensorflow==2.11.1
@@ -34,6 +35,7 @@ RUN pip install numpy
 RUN pip install Cython
 RUN pip install pycocotools
 RUN pip install pandas
+RUN pip install jupyter
 RUN pip install notebook
 RUN pip install matplotlib
 RUN pip install seaborn
@@ -53,7 +55,7 @@ RUN pip install "uvicorn[standard]"
 RUN pip install python-multipart
 RUN pip install altair
 RUN pip install psutil==5.8.0
-# Extra
-RUN pip install langchain==0.0.123
-RUN pip install paper-qa==0.1.0
-RUN pip install openai
+# # Extra
+# RUN pip install langchain==0.0.123
+# RUN pip install paper-qa==0.1.0
+# RUN pip install openai
