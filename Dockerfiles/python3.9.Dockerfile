@@ -12,8 +12,9 @@ RUN apt-get update --fix-missing && \
     apt-get install -y ffmpeg libsm6 libxext6 && \
     apt-get install -y gcc make
 
-# Default Python3.9
-RUN apt install -y python3.9-dev && \
+# Install Python
+RUN apt install -y python && \
+    apt install -y python3.9-dev && \
     apt-get install -y python3.9-distutils && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3.9 get-pip.py && \
@@ -23,6 +24,9 @@ RUN apt install -y python3.9-dev && \
     echo 'alias pip=pip3.9' >> ~/.bashrc && \
     /bin/bash -c "source ~/.bashrc" && \
     rm -rf get-pip.py
+
+# Default Python3.9
+RUN update-alternatives --install /bin/python python /bin/python3.9 0
 
 # Data science
 RUN pip install tensorflow==2.11.1
