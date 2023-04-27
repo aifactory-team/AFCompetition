@@ -61,13 +61,12 @@ RUN pip install python-multipart
 RUN pip install altair
 RUN pip install psutil==5.8.0
 # NLP
-RUN pip install konlpy
-RUN pip install paper-qa==0.1.0
 RUN pip install langchain==0.0.150
 RUN pip install openai
 RUN pip install pypdf
 RUN pip install chromadb
 RUN pip install tiktoken
-RUN pip install aifactory
 RUN pip install faiss-cpu
 RUN pip install pypdf
+RUN pip install konlpy
+RUN pip install paper-qa==0.1.0
