@@ -10,7 +10,8 @@ RUN apt-get update --fix-missing && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
     apt-get install -y wget bzip2 ca-certificates curl git && \
     apt-get install -y ffmpeg libsm6 libxext6 && \
-    apt-get install -y gcc make
+    apt-get install -y gcc make build-essential && \
+    apt install -y default-jdk
 
 # Install Python
 RUN apt install -y python && \
@@ -59,7 +60,14 @@ RUN pip install "uvicorn[standard]"
 RUN pip install python-multipart
 RUN pip install altair
 RUN pip install psutil==5.8.0
-# # Extra
-# RUN pip install langchain==0.0.123
-# RUN pip install paper-qa==0.1.0
-# RUN pip install openai
+# NLP
+RUN pip install konlpy
+RUN pip install paper-qa==0.1.0
+RUN pip install langchain==0.0.150
+RUN pip install openai
+RUN pip install pypdf
+RUN pip install chromadb
+RUN pip install tiktoken
+RUN pip install aifactory
+RUN pip install faiss-cpu
+RUN pip install pypdf
